@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+
+<!-- <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="../templates/jQuery.js"></script>
+    </head> -->
+
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <title>Sign up Nurse</title>
+</head>
+
+<body>
+
+  {% for message in get_flashed_messages() %}
+  <div class="alert alert-info">
+    {{ message }}
+  </div>
+  {% endfor %}
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Emergency</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="http://127.0.0.1:5000/admin">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:5000/signup_nurse">Sign Up a Nurse</a>
+        </li> -->
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:5000/view">View Doctors</a>
+        </li> -->
+        <!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form> -->
+    </div>
+  </nav>
+  <div class="container">
+    <h1>Add a Nurse</h1>
+
+    <form action="http://localhost:5000/signup_nurse" method="POST">
+      <div style="display:inline-block;" class="form-group">
+        <label for="firstnameinput">First Name</label>
+        <input name="firstname" type="text" class="form-control" id="firstnameinput" aria-describedby="emailHelp"
+          placeholder="Enter your first name">
+        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your data with anyone else.</small> -->
+      </div>
+
+      <div style="display:inline-block; margin-left: 20px" class="form-group">
+        <label for="lastnameinput">Last Name</label>
+        <input name="lastname" type="text" class="form-control" id="lastnameinput" aria-describedby="emailHelp"
+          placeholder="Enter your last name">
+      </div>
+
+
+      <!-- {% with messages = get_flashed_messages () %}
+         {% if messages %}
+             {% for message in messages %}
+                 <h3>{{ message }}</h3>
+             {% endfor %}
+         {% endif %} 
+      {% endwith %} -->
+
+
+      <div class="form-group">
+        <label for="genderinput">Gender</label>
+        <!-- <input name="gender" type="text" class="form-control" id="genderinput" placeholder="Enter Your gender"> -->
+        <br style="line-height:20px;">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="Male">
+          <label class="form-check-label" for="inlineRadio1">Male</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="Female">
+          <label class="form-check-label" for="inlineRadio2">Female</label>
+        </div>
+      </div>
+      <!-- <asp:DropDownList ID="type" runat="server">
+        <asp:ListItem>Quiz</asp:ListItem>
+        <asp:ListItem>Exam</asp:ListItem>
+        <asp:ListItem>Project</asp:ListItem>
+    </asp:DropDownList> -->
+
+
+
+      <div class="form-group">
+        <label for="birthdateinput">Birth Date</label>
+        <input name="birthdate" type="Date" max='2002-01-01' class="form-control" id="birthdateinput"
+          placeholder="Enter Your birthdate">
+      </div>
+      <div style="display:inline-block;" class="form-group">
+        <label for="emailinput">E-mail</label>
+        <input name="email" type="text" class="form-control" id="emailinput" size="50" placeholder="Enter your E-mail">
+      </div>
+      <div style="display:inline-block; margin-left: 20px" class="form-group">
+        <label for="passwordinput">Password</label>
+        <input name="password" type="password" class="form-control" id="passwordinput"
+          placeholder="Enter your password">
+        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your data with anyone else.</small> -->
+      </div>
+      <br>
+      <div style="display:inline-block;" class="form-group">
+        <label for="addressinput">Address</label>
+        <input name="address" type="text" class="form-control" id="addressinput" size="50" placeholder="Enter your address">
+      </div>
+      <div style="display:inline-block; margin-left: 20px" class="form-group">
+        <label for="phoneinput">Phone</label>
+        <input name="phone" type="number" class="form-control" id="phoneinput" placeholder="Enter your phone number">
+      </div>
+      <br>
+      <div style="display:inline-block;" class="form-group">
+        <label for="departmentnoinput">Department Number</label>
+        <input name="departmentno" type="number" class="form-control" id="departmentnoinput"
+          placeholder="Enter your department number">
+      </div>
+      <br>
+      <div style="display:inline-block;" class="form-group">
+        <label for="ssninput">SSN</label>
+        <input name="ssn" type="number" class="form-control" id="ssninput" placeholder="Enter your ssn">
+      </div>
+      <div style="display:inline-block; margin-left: 20px" class="form-group">
+        <label for="salaryinput">Salary</label>
+        <input name="salary" type="number" class="form-control" id="salaryinput" placeholder="Enter your salary">
+      </div>
+      <br>
+
+
+
+
+
+
+      <!-- 
+      <div class="form-group">
+        <label for="genderinput">I'm a</label>
+        <!-- <input name="gender" type="text" class="form-control" id="genderinput" placeholder="Enter Your gender"> -->
+      <!-- <br style="line-height:20px;">
+        <div style="clear:both" class="form-check form-check-inline" >
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Radio1" value="0">
+          <label class="form-check-label" for="Radio1">Doctor</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Radio2" value="1">
+          <label class="form-check-label" for="Radio2">Nurse</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Radio2" value="2">
+          <label class="form-check-label" for="Radio3">Receptionist</label>
+        </div>
+      </div> -->
+
+
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+
+  <!-- Optional JavaScript -->
+  <!-- <script> 
+    $(document).ready(function () {
+      console.log("hereeeee")
+      $("#inlineRadio1").click(function () {
+          $("#fn").show();
+          $("#ln").show();
+      });
+  });
+</script> -->
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
